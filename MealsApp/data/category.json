@@ -1,0 +1,52 @@
+[
+  {
+    "id": "23f5c3f1-90a9-4040-9881-06d1fb111fab",
+    "title": "Italian",
+    "color": "#f5428d"
+  },
+  {
+    "id": "ff47d11d-7ded-4c8f-82e0-8198608a7ca1",
+    "title": "Quick & Easy",
+    "color": "#f54242"
+  },
+  {
+    "id": "0cf3be21-aad0-4348-b0c6-45055b7f47b0",
+    "title": "Hamburgers",
+    "color": "#f5a442"
+  },
+  {
+    "id": "67fdfb34-597f-4639-8cc2-a86190fd464d",
+    "title": "German",
+    "color": "#f5d142"
+  },
+  {
+    "id": "6af7b927-24fa-4659-96c8-cd9b4a9a6a00",
+    "title": "Light & Lovely",
+    "color": "#368dff"
+  },
+  {
+    "id": "9557ecf9-1b55-4a83-b002-904dc7c05753",
+    "title": "Exotic",
+    "color": "#41d95d"
+  },
+  {
+    "id": "aaaff93f-f90f-439d-8f6a-5799e13c4640",
+    "title": "Breakfast",
+    "color": "#9eecff"
+  },
+  {
+    "id": "08412849-eaed-424b-99c3-df47f79c692a",
+    "title": "Asian",
+    "color": "#b9ffb0"
+  },
+  {
+    "id": "6bf00b30-1128-4a37-81ac-c87f5dc4a13c",
+    "title": "French",
+    "color": "#ffc7ff"
+  },
+  {
+    "id": "a517ed69-7f66-4621-b54c-6276675dcdf6",
+    "title": "Summer",
+    "color": "#47fced"
+  }
+]
