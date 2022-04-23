@@ -10,14 +10,30 @@ const IndexPage = () => {
     return <LoadingSpinner />;
   }
 
-  return <Container>{menuData.endDate}</Container>;
+  return (
+    <Container>
+      <Nav>Nav</Nav>
+      <Content>Content</Content>
+    </Container>
+  );
 };
 
 const Container = styled.div`
+  flex: 1;
+  display: flex;
+  overflow-y: scroll;
+`;
+
+const Nav = styled.div`
   display: flex;
   flex: 1;
-  justify-content: center;
-  align-items: center;
+  background: red;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex: 3;
+  background: yellow;
 `;
 
 export default IndexPage;
