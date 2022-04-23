@@ -1,7 +1,8 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { TItem } from "../types/api";
+import ItemDetailsModal from "./ItemDetailsModal";
 
 type TProps = {
   item: TItem;
@@ -9,6 +10,10 @@ type TProps = {
 };
 
 const ItemCard = ({ item, isCategoryDisabled }: TProps) => {
+  // item details
+  const [isItemDetailsModelVisible, setIsItemDetailsModelVisible] =
+    useState(false);
+
   // set card button text depending upon stock limits and category availability
   const setCardButtonText = (quantityLeft: number): string => {
     if (isCategoryDisabled) {
@@ -39,10 +44,18 @@ const ItemCard = ({ item, isCategoryDisabled }: TProps) => {
         <Button
           className="button"
           disabled={isCategoryDisabled || item.itemStock.quantityLeft === 0}
+          onClick={() => setIsItemDetailsModelVisible(true)}
         >
           {setCardButtonText(item.itemStock.quantityLeft)}
         </Button>
       </div>
+
+      {/* modals */}
+      <ItemDetailsModal
+        item={item}
+        isVisible={isItemDetailsModelVisible}
+        setIsVisible={setIsItemDetailsModelVisible}
+      />
     </Container>
   );
 };
