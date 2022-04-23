@@ -5,6 +5,7 @@
 body {
   display: flex;
   flex: 1;
+  overflow: hidden;
 }
 
 #__next {
@@ -12,6 +13,75 @@ body {
   flex: 1;
 }
 
-/* define theme colors */
+/* copied from view-source:https://mrskueh.com/ root for theme colors */
+:root {
+  /* Colors */
+  --color-primary: #fa5553;
+  --color-primary-dark: #c91c19;
+  --color-primary-faded: rgba(206, 155, 29, 0.1);
+  --color-link: #fa5553;
+
+  /* Text colors */
+  --color-text: black;
+  --color-text2: black;
+  --color-text3: black;
+
+  --color-button-text: #fa5553;
+  --color-text-on-primary: #fffefa;
+  --color-text-on-danger: #fffefa;
+  --color-text-on-success: #fffefa;
+
+  --color-header-text: black;
+  --color-header-text2: black;
+  --color-footer-text: black;
+  --color-footer-text2: black;
+
+  /* Background colors */
+  --color-background: #fffefa;
+  --color-background2: #e6e6e6;
+  --color-background3: #fffefa; /* cart footer summary, cart item remove confirmation bg, time slot picker header and date buttons */
+  --color-button-background: #fffefa;
+  --color-button-background-dark: #f7f7f7;
+
+  --color-header-background: white;
+  --color-footer-background: #fffefa;
+  --color-card-background: white;
+
+  /* Border colors */
+  --color-border: black;
+  --color-button-border: #fa5553;
+  --color-button-primary-border: transparent;
+  --color-button-danger-border: transparent;
+
+  --color-on-transparent-header: #9a9a9a;
+
+  /* Misc colors */
+  --color-danger: #c33e38;
+  --color-danger-dark: #af2c26;
+
+  --color-success: #6b8d09;
+  --color-success-dark: #567006;
+
+  /* Comment and uncomment as necessary */
+  /* For light theme */
+  --color-scrollbar-track: rgba(0, 0, 0, 0.05);
+  --color-scrollbar-thumb: rgba(0, 0, 0, 0.25);
+  --color-background-faded: rgba(0, 0, 0, 0.05);
+  /* For dark theme */
+  /* --color-scrollbar-track: rgba(255, 255, 255, 0.05); */
+  /* --color-scrollbar-thumb: rgba(255, 255, 255, 0.25); */
+  /* --color-background-faded: rgba(255, 255, 255, 0.1); */
+
+  /* Font */
+  --font-display: ltc-bodoni-175, serif;
+  --font-display-weight: 400;
+  --font-display-text-transform: none;
+
+  --font-body: "Courier New", Courier, monospace, sans-serif;
+  --font-body-weight: 400;
+
+  /* Misc */
+  --link-text-decoration: none;
+}
 
 /* override ant design components */
