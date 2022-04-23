@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -13,6 +14,8 @@ const IndexPage = () => {
   return (
     <Container>
       <Nav>
+        <p className="title">Our Menu</p>
+
         {menuData.sections.map((c) =>
           c.items.length ? <a href={`#${c.id}`}>{c.label}</a> : null
         )}
@@ -42,7 +45,7 @@ const IndexPage = () => {
                         {i.currency} {i.unitPriceFractional.toFixed(2)}
                       </p>
 
-                      <button>Add</button>
+                      <Button className="button">Add</Button>
                     </div>
                   </ItemCard>
                 ))}
@@ -76,6 +79,12 @@ const Nav = styled.div`
   display: flex;
   flex-direction: column;
   /* background: red; */
+
+  .title {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+  }
 
   @media only screen and (min-width: 768px) {
     /* tablets and desktop */
@@ -126,6 +135,7 @@ const Category = styled.div`
 const ItemsGroup = styled.div`
   display: grid;
   /* background: violet; */
+  margin-bottom: 18px;
 
   @media only screen and (min-width: 768px) {
     /* tablets and desktop */
@@ -158,7 +168,6 @@ const ItemCard = styled.div`
   @media only screen and (min-width: 768px) {
     /* tablets and desktop */
     padding: 12px;
-    /* margin: 12px; */
   }
 
   @media only screen and (max-width: 767px) {
@@ -189,6 +198,8 @@ const ItemCard = styled.div`
       display: -webkit-box;
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
+
+      margin-bottom: 12px;
     }
 
     .description {
@@ -199,6 +210,8 @@ const ItemCard = styled.div`
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+
+      margin-bottom: 12px;
     }
   }
 
@@ -213,6 +226,11 @@ const ItemCard = styled.div`
     .price {
       padding: 0;
       margin: 0;
+    }
+
+    .button {
+      background: var(--color-primary);
+      color: var(--color-text-on-primary);
     }
   }
 `;
