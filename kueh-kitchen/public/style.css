@@ -1,0 +1,17 @@
+/* import antd styles from the library */
+@import "~antd/dist/antd.css";
+
+/* override body and __next */
+body {
+  display: flex;
+  flex: 1;
+}
+
+#__next {
+  display: flex;
+  flex: 1;
+}
+
+/* define theme colors */
+
+/* override ant design components */
