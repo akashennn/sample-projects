@@ -7,6 +7,15 @@ import { AppContext } from "../contexts/appContext";
 const IndexPage = () => {
   const { menuData } = useContext(AppContext);
 
+  // check whether the item is OOS or not
+  const isItemOOS = (quantityLeft: number): boolean => {
+    if (quantityLeft === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   if (menuData === null) {
     return <LoadingSpinner />;
   }
@@ -36,7 +45,7 @@ const IndexPage = () => {
 
               <ItemsGroup>
                 {c.items.map((i) => (
-                  <ItemCard>
+                  <ItemCard key={i.id}>
                     <div className="header">
                       <img src={i.imageUrl} className="image"></img>
                     </div>
@@ -51,7 +60,14 @@ const IndexPage = () => {
                         {i.currency} {i.unitPriceFractional.toFixed(2)}
                       </p>
 
-                      <Button className="button">Add</Button>
+                      <Button
+                        className="button"
+                        disabled={isItemOOS(i.itemStock.quantityLeft)}
+                      >
+                        {isItemOOS(i.itemStock.quantityLeft)
+                          ? "Not available"
+                          : "Add"}
+                      </Button>
                     </div>
                   </ItemCard>
                 ))}
@@ -85,8 +101,6 @@ const Nav = styled.div`
   display: flex;
   flex-direction: column;
 
-  /* background: red; */
-
   .title {
     padding: 0;
     margin: 0;
@@ -115,6 +129,7 @@ const Nav = styled.div`
 
     .nav {
       margin-right: 6px;
+      color: inherit;
     }
   }
 `;
@@ -123,7 +138,6 @@ const Content = styled.div`
   display: flex;
   flex: 3;
   flex-direction: column;
-  /* background: yellow; */
 
   @media only screen and (min-width: 768px) {
     /* tablets and desktop */
@@ -139,7 +153,6 @@ const Category = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  /* background: green; */
 
   .label {
     font-size: 16px;
@@ -157,7 +170,6 @@ const Category = styled.div`
 
 const ItemsGroup = styled.div`
   display: grid;
-  /* background: violet; */
   margin-bottom: 18px;
 
   @media only screen and (min-width: 768px) {
@@ -175,8 +187,6 @@ const ItemCard = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* background: peachpuff; */
-  align-items: center;
 
   border-radius: 5px;
   --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -186,8 +196,6 @@ const ItemCard = styled.div`
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 
-  /* box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25); */
-
   @media only screen and (min-width: 768px) {
     /* tablets and desktop */
     padding: 12px;
@@ -196,13 +204,13 @@ const ItemCard = styled.div`
   @media only screen and (max-width: 767px) {
     /* phones */
     padding: 6px;
-    /* margin: 6px; */
   }
 
   .header {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    margin-bottom: 12px;
   }
 
   .image {
@@ -216,24 +224,20 @@ const ItemCard = styled.div`
       padding: 0;
       margin: 0;
       font-weight: bold;
-
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
-
       margin-bottom: 12px;
     }
 
     .description {
       padding: 0;
       margin: 0;
-
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
-
       margin-bottom: 12px;
     }
   }
@@ -241,9 +245,6 @@ const ItemCard = styled.div`
   .footer {
     flex: 1;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
 
     .price {
@@ -254,6 +255,18 @@ const ItemCard = styled.div`
     .button {
       background: var(--color-primary);
       color: var(--color-text-on-primary);
+    }
+
+    @media only screen and (min-width: 768px) {
+      /* tablets and desktop */
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media only screen and (max-width: 767px) {
+      /* phones */
+      flex-direction: column;
     }
   }
 `;
