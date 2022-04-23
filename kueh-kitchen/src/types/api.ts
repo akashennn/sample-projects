@@ -12,7 +12,7 @@ export type TItem = {
   displayOrder: number;
   unitPriceFractional: number;
   currency: "SGD";
-  imageURL: string;
+  imageUrl: string;
   itemStock: {
     quantityLeft: number;
   };
